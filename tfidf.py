@@ -15,6 +15,7 @@ from xgboost import XGBClassifier
 from time import sleep
 from sklearn.model_selection import KFold 
 from sklearn import metrics
+from hyperopt import STATUS_OK, Trials, fmin, hp, tpe
 
 def set_paths():
     print("[+] Setting paths...")
@@ -77,27 +78,73 @@ def fit_model(model,train_df,test_df,y_train,ytest):
     print(classification_report(ytest, preds))
     return model
 
+def tune_hyperparameters(space):
+
+    clf= XGBClassifier(
+                    n_estimators =space['n_estimators'], max_depth = int(space['max_depth']), gamma = space['gamma'],
+                    reg_alpha = int(space['reg_alpha']),min_child_weight=int(space['min_child_weight']),
+                    colsample_bytree=int(space['colsample_bytree']))
+    
+    evaluation = [( train_df, y_train), ( test_df, ytest)]
+    
+    clf.fit(train_df, y_train,
+            eval_set=evaluation, eval_metric="mlogloss",
+            early_stopping_rounds=10,verbose=False)
+    pred = clf.predict(test_df)
+    accuracy = metrics.accuracy_score(ytest, pred)
+    print ("SCORE:", accuracy)
+    return {'loss': -accuracy, 'status': STATUS_OK }
+
+
+
 if __name__=="__main__":
     file_path = set_paths()
     data = read_data(file_path)
     data = preprocess(data)
-    xtrain,xtest, ytrain, ytest = training_utils(data)
+    xtrain,xtest, y_train, ytest = training_utils(data)
     train_df,test_df = tfidf(xtrain,xtest)
     st_x= StandardScaler()    
     train_df = st_x.fit_transform(train_df)    
     test_df = st_x.transform(test_df)    
     
-    model = KNeighborsClassifier(n_neighbors=63)
-    knn = fit_model(model,train_df,test_df,ytrain,ytest)
-    model = DecisionTreeClassifier()
-    dt = fit_model(model,train_df,test_df,ytrain,ytest)
-    model = RandomForestClassifier(n_estimators= 300, criterion="entropy")
-    rf = fit_model(model,train_df,test_df,ytrain,ytest)
+    # model = KNeighborsClassifier(n_neighbors=63)
+    # knn = fit_model(model,train_df,test_df,y_train,ytest)
+    # model = DecisionTreeClassifier()
+    # dt = fit_model(model,train_df,test_df,y_train,ytest)
+    # model = RandomForestClassifier(n_estimators= 300, criterion="entropy")
+    # rf = fit_model(model,train_df,test_df,y_train,ytest)
 
-    final_model = VotingClassifier(estimators=[('dt',dt),('rf',rf)])
-    vote = fit_model(final_model,train_df,test_df,ytrain,ytest)
-    model = XGBClassifier()
-    xgb = fit_model(model,train_df,test_df,ytrain,ytest)
+    # final_model = VotingClassifier(estimators=[('dt',dt),('rf',rf)])
+    # vote = fit_model(final_model,train_df,test_df,y_train,ytest)
+    # model = XGBClassifier()
+    # xgb = fit_model(model,train_df,test_df,y_train,ytest)
 
-    final_model = VotingClassifier(estimators=[('rf',rf),('xgb',xgb)])
-    final_model = fit_model(final_model,train_df,test_df,ytrain,ytest)
+    # model = XGBClassifier(colsample_bytree=0.896028191107634,gamma=7.91912545701873,max_depth=13, min_child_weight=4, reg_alpha=175, reg_lambda=0.32462918862240064)
+    # xgb = fit_model(model,train_df,test_df,y_train,ytest)
+
+    # final_model = VotingClassifier(estimators=[('rf',rf),('xgb',xgb)])
+    # final_model = fit_model(final_model,train_df,test_df,y_train,ytest)
+
+    trials = Trials()
+    space={'max_depth': hp.quniform("max_depth", 3, 18, 1),
+        'gamma': hp.uniform ('gamma', 1,9),
+        'reg_alpha' : hp.quniform('reg_alpha', 40,180,1),
+        'reg_lambda' : hp.uniform('reg_lambda', 0,1),
+        'colsample_bytree' : hp.uniform('colsample_bytree', 0.5,1),
+        'min_child_weight' : hp.quniform('min_child_weight', 0, 10, 1),
+        'n_estimators': 180,
+        'seed': 0
+    }
+
+    best_hyperparams = fmin(fn = tune_hyperparameters,
+                            space = space,
+                            algo = tpe.suggest,
+                            max_evals = 100,
+                            trials = trials)
+
+    with open(r'hyperparams.txt', 'w') as fp:
+        for k,v in best_hyperparams.items():
+            # write each item on a new line
+            fp.write("%s\n" % k)
+            fp.write("%s\n" % v)
+        print('Done')
