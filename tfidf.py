@@ -16,6 +16,7 @@ from time import sleep
 from sklearn.model_selection import KFold 
 from sklearn import metrics
 from hyperopt import STATUS_OK, Trials, fmin, hp, tpe
+from lightgbm import LGBMClassifier
 
 def set_paths():
     print("[+] Setting paths...")
@@ -48,7 +49,7 @@ def training_utils(data):
     xtrain, xtest, ytrain, ytest = train_test_split(
             data['Name'],
             data["Category"],
-            test_size=0.25,
+            test_size=0.2,
             random_state=60,
             stratify=data["Category"],
         )
@@ -88,8 +89,7 @@ def tune_hyperparameters(space):
     evaluation = [( train_df, y_train), ( test_df, ytest)]
     
     clf.fit(train_df, y_train,
-            eval_set=evaluation, eval_metric="mlogloss",
-            early_stopping_rounds=10,verbose=False)
+            eval_set=evaluation, eval_metric="mlogloss",verbose=False)
     pred = clf.predict(test_df)
     accuracy = metrics.accuracy_score(ytest, pred)
     print ("SCORE:", accuracy)
@@ -116,35 +116,43 @@ if __name__=="__main__":
 
     # final_model = VotingClassifier(estimators=[('dt',dt),('rf',rf)])
     # vote = fit_model(final_model,train_df,test_df,y_train,ytest)
-    # model = XGBClassifier()
+    # model = XGBClassifier(booster = 'dart')
     # xgb = fit_model(model,train_df,test_df,y_train,ytest)
 
-    # model = XGBClassifier(colsample_bytree=0.896028191107634,gamma=7.91912545701873,max_depth=13, min_child_weight=4, reg_alpha=175, reg_lambda=0.32462918862240064)
+    # model = XGBClassifier(colsample_bytree=0.6059329304964837,
+    #                         gamma=2.361923398781385,
+    #                         max_depth=12,
+    #                         min_child_weight=6,
+    #                         reg_alpha=41.0,
+    #                         reg_lambda=0.00474534836744336,
+    #                         booster = 'dart'
+    #                         )
+
     # xgb = fit_model(model,train_df,test_df,y_train,ytest)
 
+   
     # final_model = VotingClassifier(estimators=[('rf',rf),('xgb',xgb)])
     # final_model = fit_model(final_model,train_df,test_df,y_train,ytest)
 
-    trials = Trials()
-    space={'max_depth': hp.quniform("max_depth", 3, 18, 1),
-        'gamma': hp.uniform ('gamma', 1,9),
-        'reg_alpha' : hp.quniform('reg_alpha', 40,180,1),
-        'reg_lambda' : hp.uniform('reg_lambda', 0,1),
-        'colsample_bytree' : hp.uniform('colsample_bytree', 0.5,1),
-        'min_child_weight' : hp.quniform('min_child_weight', 0, 10, 1),
-        'n_estimators': 180,
-        'seed': 0
-    }
+    # trials = Trials()
+    # space={'max_depth': hp.quniform("max_depth", 3, 18, 1),
+    #     'gamma': hp.uniform ('gamma', 1,9),
+    #     'reg_alpha' : hp.quniform('reg_alpha', 40,180,1),
+    #     'reg_lambda' : hp.uniform('reg_lambda', 0,1),
+    #     'colsample_bytree' : hp.uniform('colsample_bytree', 0.5,1),
+    #     'min_child_weight' : hp.quniform('min_child_weight', 0, 10, 1),
+    #     'n_estimators': 180,
+    #     'seed': 0
+    # }
 
-    best_hyperparams = fmin(fn = tune_hyperparameters,
-                            space = space,
-                            algo = tpe.suggest,
-                            max_evals = 100,
-                            trials = trials)
+    # best_hyperparams = fmin(fn = tune_hyperparameters,
+    #                         space = space,
+    #                         algo = tpe.suggest,
+    #                         max_evals = 100,
+    #                         trials = trials)
 
-    with open(r'hyperparams.txt', 'w') as fp:
-        for k,v in best_hyperparams.items():
-            # write each item on a new line
-            fp.write("%s\n" % k)
-            fp.write("%s\n" % v)
-        print('Done')
+    # with open(r'hyperparams.txt', 'w') as fp:
+    #     for k,v in best_hyperparams.items():
+    #         # write each item on a new line
+    #         fp.write(f"{k}={v},\n")
+    #     print('Done')

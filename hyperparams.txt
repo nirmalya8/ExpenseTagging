@@ -1,1 +1,6 @@
-colsample_bytree=0.896028191107634,gamma=7.91912545701873,max_depth=13.0, min_child_weight=4.0, reg_alpha=175.0, reg_lambda=0.32462918862240064}
+colsample_bytree=0.6059329304964837,
+gamma=2.361923398781385,
+max_depth=12,
+min_child_weight=6,
+reg_alpha=41.0,
+reg_lambda=0.00474534836744336
