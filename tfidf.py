@@ -17,7 +17,7 @@ from sklearn.model_selection import KFold
 from sklearn import metrics
 from hyperopt import STATUS_OK, Trials, fmin, hp, tpe
 from lightgbm import LGBMClassifier
-
+import pickle
 def set_paths():
     print("[+] Setting paths...")
     base_path = os.getcwd()
@@ -38,7 +38,7 @@ def read_data(file_path):
 def preprocess(data):
     sleep(2)
     print("[+] Preprocessing...")
-    map_dict = {"Food and Groceries": 0, "Medical and Healthcare": 1,"Education":2,"Lifestyle and Entertainment":3,"Travel & Transportation":4}#"Housing and Utilities":3
+    map_dict = {"Food and Groceries": 0, "Medical and Healthcare": 1,"Education":2,"Lifestyle and Entertainment":3,"Travel & Transportation":4,"Clothing":5,"Eye":6,"Shoe":7}#"Housing and Utilities":3
     data["Category"] = data["Category"].map(map_dict)
     print(map_dict)
     return data
@@ -49,7 +49,7 @@ def training_utils(data):
     xtrain, xtest, ytrain, ytest = train_test_split(
             data['Name'],
             data["Category"],
-            test_size=0.2,
+            test_size=0.05,
             random_state=60,
             stratify=data["Category"],
         )
@@ -60,14 +60,16 @@ def tfidf(xtrain,xtest):
     sleep(2)
     print("[+] Vectorizing...")
     tfidf = TfidfVectorizer(max_features=300, stop_words="english")
-
+    tfidf = tfidf.fit(xtrain)
     train_df = pd.DataFrame(
-                tfidf.fit_transform(xtrain).toarray(), columns=tfidf.vocabulary_
+                tfidf.transform(xtrain).toarray(), columns=tfidf.vocabulary_
             )
 
     test_df = pd.DataFrame(
                 tfidf.transform(xtest).toarray(), columns=tfidf.vocabulary_
             )
+
+    pickle.dump(tfidf, open("tfidf.pickle", "wb"))
     return train_df, test_df
 
 def fit_model(model,train_df,test_df,y_train,ytest):
@@ -116,9 +118,13 @@ if __name__=="__main__":
 
     # final_model = VotingClassifier(estimators=[('dt',dt),('rf',rf)])
     # vote = fit_model(final_model,train_df,test_df,y_train,ytest)
-    # model = XGBClassifier(booster = 'dart')
-    # xgb = fit_model(model,train_df,test_df,y_train,ytest)
-
+    model = XGBClassifier(booster = 'dart')
+    xgb = fit_model(model,train_df,test_df,y_train,ytest)
+    
+    model  = XGBClassifier()
+    xgb = fit_model(model,train_df,test_df,y_train,ytest)
+    filename = 'finalized_model1.sav'
+    pickle.dump(xgb, open(filename, 'wb'))
     # model = XGBClassifier(colsample_bytree=0.6059329304964837,
     #                         gamma=2.361923398781385,
     #                         max_depth=12,
