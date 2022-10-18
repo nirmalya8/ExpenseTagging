@@ -1,0 +1,433 @@
+Air Costa
+Air Odisha
+Air India
+Air India Express
+Amartex
+Ambuja Cements
+Amrutanjan Healthcare
+Amul
+Apollo Hospitals
+Apollo Tyres
+Arvind
+Ashok Leyland
+Asian Paints
+Bajaj Auto
+Balaji Telefilms
+Alt Balaji
+Bharat Petroleum
+BPCL
+Bharat Sanchar Nigam Limited
+BSNL
+Airtel
+Biocon
+Britannia
+Cadila
+Café Coffee Day
+CCD
+Calcutta Tramways Company
+CaratLane
+CEAT
+Celkon
+Spice Digital
+Chennai Petroleum Corporation
+Cipla
+Dabur
+Damodar Valley Corporation or DVC
+Deccan Charters
+Delhi Metro
+Dish TV
+DLF
+Dr. Reddy's Laboratories
+Eicher Motors
+Emcure
+Exide
+Force Motors
+Fortis
+Glenmark
+GMR Group
+GoAir
+Godrej
+Gujarat State Petroleum Corporation
+Haldiram's
+Havells
+Hawkins Cookers
+Hero Cycles
+Hero
+Hindustan Motors
+Hindustan Petroleum
+Hindustan Times
+iball
+Idea
+India Cements
+Indian Express Limited
+Indian Oil
+Indian Railways
+Indian Telephone Industries Limited
+IndiGo
+Intex
+ITC
+Jet Airways
+Dominos
+Karbonn
+Kingfisher
+Larsen & Toubro
+L&T
+Lava
+Liberty
+LIC
+Living Media
+MTNL
+Mahindra
+M&M
+MakeMyTrip
+Mangalore Refinery and Petrochemicals Limited
+Marico
+Maruti
+Suzuki
+Metro
+MRF
+Myntra
+NDTV
+Network 18
+ONGC
+Onida
+Pantaloons
+Pawan Hans
+Piramal
+Power Grid Corporation of India
+Punj Lloyd
+Ranbaxy
+Raymond
+Rediff
+Reliance Entertainment
+Reliance Fresh
+Reliance Petroleum
+Reliance Retail
+Royal Enfield
+Saravana Bhavan
+Shoppers Stop
+Shree Cement
+Spice Telecom
+SpiceJet
+Sun Pharma
+Tamil Nadu Newsprint and Papers Limited
+Tata Communications
+Tata Motors
+Tata Sky
+Himalaya
+The Hindu
+The Times Group
+T-Series
+TVS
+Ultratech
+Unitech
+Videocon
+Voltas
+West Bengal State Electricity Distribution Company
+West Bengal State Electricity Transmission Company
+Yatra
+Zee
+Zee
+Zerodha
+Zomato
+Escorts
+Goodyear
+Krypton
+Modi Rubber
+JK Tyre
+Hind Motors
+CarTrade Tech
+Whirlpool
+Symphony
+Blue Star
+Hitachi
+Orient Electric
+Amber
+Dixon
+Philips
+Polycab
+Finolex
+Relaxo
+Bata
+Khadim
+Mayur Leather
+Siyaram
+Monte Carlo
+Indian terrain
+Medplus
+KFC
+Pizza hut
+Costa Coffee
+Zydus Wellness
+Barbeque Nation
+BBQ Nation
+TastyBite
+Vadilal
+Milkfood
+EIH
+East India Hotel
+Oberoi
+Chalet Hotels
+Lemon Tree
+Taj
+Easytrip
+Thomas Cook
+Titan
+Kalyan
+PC Jeweller
+Tribhovandas
+Tanishq
+Vodafone Idea
+Jio
+Den
+Catvision
+Hathway
+Max
+Dr Lal Pathlab
+Narayana Hruda
+Metropolis
+Timex
+Century Ply
+Greenply
+Archidply
+Bajaj Finserv
+Bajaj Finance
+Religare
+Pantaloons
+Louis Philippe
+Van Heusen
+Allen Solly
+Peter England
+Spencer
+Dmart
+Big Bazaar
+Lifestyle
+Shree Cements
+Dalmia Bharat
+J K Cement
+JK Lakshmi Cement
+Kajaria
+Cera
+Hindware
+Jaquar
+Berger Paints
+Blue Dart
+DTDC
+HDFC Life
+New India Assurance
+SBI Life Insurance
+ICICI Prudential
+ICICI Lombard
+Reliance Nippon
+Tata-AIA
+Star Union dai-ichi
+Shriram Life
+PNB Metlife
+Max Life
+PVR
+INOX
+Carnival
+Cinepolis
+SRS
+Mercedes
+BMW
+Audi
+Jaguar
+Volvo
+Mini Cooper
+Porsche
+Hyundai
+Honda
+Skoda
+Nexa
+Renault
+Toyota
+Volkswagen
+MG
+Morris Garages
+Fiat
+Chevrolet
+Yamaha
+Piaggio
+Ktm
+UM Motorcycles
+Universal McCann
+Kawasaki Motors
+Harley Davidson
+FabIndia
+Mufti
+American Swan
+Nike
+Adidas
+Puma
+Manyawar
+Blackberrys
+Manish Malhotra
+Sabyasachi Mukherjee
+Madame
+Max
+Gini & Jony
+Globus
+Tarun Tahiliani
+Westside
+Pepe Jeans
+Levis
+Levi's
+Wrangler
+Reebok
+Red tape
+Bata
+Biba
+Arrow
+Killer
+Zara
+Ajio
+Amazon
+Tata Cliq
+Bewakoof
+Nnow
+Nykaa
+Snapdeal
+Alibaba
+Aliexpress
+FirstCry
+Shopclues
+Craftsvilla
+Shein
+Club factory
+Koovs
+eBay
+Lee
+Flying Machine
+Numero Uno
+Park Avenue
+H&M
+UCB
+United Colors of Benetton
+Tommy Hilfiger
+Calvin Klein
+U.S Polo Assn
+Lenskart
+Vision Express
+Titan Eyeplus
+Specsmakers
+Himalaya Optical
+OYO
+Fab Hotels
+Zostel
+Trivago
+Goibibo
+Ixigo
+Clear Trip
+Make My Trip
+Airbnb
+Booking.com
+Expedia
+Agoda
+Tripadvisor
+Leela
+Redbus
+IRCTC
+Abhibus
+Treebo
+Marriot
+Hyatt
+Hilton
+Radisson
+Ibis
+Novotel
+Park Inn
+ITC Hotel
+Sarovar Hotels
+Le Meridien
+Ola
+Uber
+Jugnoo
+Meru
+Savaari
+My Taxi india
+Gozo Cabs
+Spice Cabs
+Easycabs
+Fasttrack Taxi
+Zoom car
+Rapido
+OYE! Rickshaw
+Netflix
+Amazon Prime
+Sony liv
+Voot
+Alt Balaji
+Google Playstore
+Bookmyshow
+Hotstar
+Disney Hotstar
+Swiggy
+Faasos
+Deliveroo
+Grubhub
+Eat fit
+Foodpanda
+Foodmingo
+Devyani International Ltd
+Starbucks
+Barista
+Bikanervala
+Chai Point
+Creambell
+Dosa Plaza
+Karachi Bakery
+Nirula's
+Natural Ice Cream
+Sagar Ratna
+Subway
+Wendy's
+Dunkin Donuts
+Keventers
+McDonalds
+Costa Coffee
+Baskin Robbins
+Nando's
+Taco Bell
+Goli Vada Pav
+Mainland China
+Oh! Calcutta
+Machaan
+Netmeds
+Practo
+Tata 1mg
+Sasta Sundar
+Apollo Pharmacy
+Medlife
+Pharmeasy
+BooksMeds
+Medibuddy
+Blinkit
+Grofers
+Milk Basket
+Big Basket
+Dunzo
+JioMart
+Licious
+Apple
+Samsumg
+Xiaomi
+Croma
+One Plus
+Lenovo
+HP
+Oppo
+Vijay Sales
+Sony
+Xbox
+Haier
+LG
+Videocon
+Panasonic
+Lloyd
+Onida
+Intex
+Sansui
+Micromax
+Toshiba
+Dell
