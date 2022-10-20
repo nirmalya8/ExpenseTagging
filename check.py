@@ -18,4 +18,10 @@ def find_closest_match(test_str, list2check):
   closest_match        = numpy.array(list(scores.keys()))[closest_match_idx]
   return closest_match, closest_match_idx, scores_values[closest_match_idx], scores_values
 
-print(find_closest_match("Air France",["Air India","Air Costa","Animal"]))
+def is_str_in(s,l):
+    for i in range(len(l)):
+        if l[i].lower() == s.lower():
+            return True, i
+    return False, -1
+
+#print(find_closest_match("Air France",["Air India","Air Costa","Animal"]))
