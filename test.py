@@ -15,7 +15,7 @@ from check import is_str_in
 import streamlit as st
 
 st.title("Expense Tagging")
-st.subheader("Type in the name of a brand, we'll tell you its category")
+st.subheader("Upload a txt file with each line containing a brand, we'll tell you their categories")
 
 file_name = "brands.json"
 with open(file_name,'r') as f:
@@ -71,7 +71,7 @@ if uploaded_file is not None:
 # remove new line characters
     brand_list = [x.strip() for x in uploaded_file]
         #st.write(" ".join(content_list))
-    st.subheader("Output Text")
+    st.subheader("Output File")
     with st.spinner(text="This may take a moment..."):
                 time.sleep(2)
                 out_list = []
