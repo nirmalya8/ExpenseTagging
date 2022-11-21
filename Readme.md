@@ -11,13 +11,14 @@ The Readme is divided into the following sections: <ul>
 </ul>
 
 ## Problem Statement
+---
 Given the name of a brand, a company, or a shop predict which of the following categories it belongs to: Food and Groceries, Medical and Healthcare, Education, Lifestyle and Entertainment, and Travel & Transportation.
 
 Input : Name of a brand  
 Output: Category
 
 ## Proposed Approach
-
+---
 The main approach to this problem lies in the encoding of the words to numbers. When we look at the name of a store say `XYZ Grocery Shop`, we immediately look at the word `Grocery` and go it must be a Food and Groceries store. Similarly, `XYZ Pharmacy` would almost always be a Medicine store. 
 
 In the word space, names belonging to a certain category would always end up in a cluster, far from any other category. Or, in theory, that should be the case.
@@ -32,6 +33,7 @@ On training, Logistic Regression gave an overall test accuracy of 81%. We chose 
 
 
 ## Running The Code
+---
 The code works on any system with or above Python 3.9.
 
 Clone the repository and move to it in the terminal using the `cd` command.
@@ -48,7 +50,7 @@ cd src
 streamlit run test.py
 ```
 ## File System
-
+---
 This is the file structure. Details on each are given below.
 <pre>
 ├── __pycache__  
