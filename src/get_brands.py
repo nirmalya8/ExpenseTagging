@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 import json
 def get_brands_json():
-    brands_file = 'brands.txt'
-    categories_file = 'categories.txt'
+    brands_file = 'Misc/brands.txt'
+    categories_file = 'Misc/categories.txt'
 
     with open(brands_file) as f:
         brands = [line.rstrip() for line in f]

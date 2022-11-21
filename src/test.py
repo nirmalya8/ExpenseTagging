@@ -34,10 +34,10 @@ for k in data.keys():
 #if bo:
 #    print(categories[ind])
 #print(categories[b])
-filename = 'final_lr1.sav'
+filename = 'Models/final_lr1.sav'
 loaded_model = pickle.load(open(filename, 'rb'))
 
-with open('tfidf2.pickle','rb') as to_read:
+with open('Models/tfidf2.pickle','rb') as to_read:
    fitted_tfidf = pickle.load(to_read)
 
 map_dict = {0:"Food and Groceries", 1:"Medical and Healthcare",2:"Education",3:"Lifestyle and Entertainment",4:"Travel & Transportation",5:"Clothing"}
